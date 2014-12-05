@@ -25,9 +25,9 @@ app.post('/newRoom', function (req, res) {
 
     if (room) {
         var nsp = io.of('/' + room);
-        nsp.on('connection', function(socket){
-            debugger;
-            console.log('someone connected to room ');
+        nsp.on('connection', function (socket) {
+            console.log('someone connected to room ' + room);
+            socket.emit('welcome', 'Thanks for joining ' + room);
         });
     }
     res.send({status: 'success'});

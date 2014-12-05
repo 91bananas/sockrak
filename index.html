@@ -26,6 +26,9 @@
 
         var socket = io('/' + room);
 
+        socket.on('welcome', function (message) {
+            $('body').append(message);
+        });
     };
 
     if (window.location.hash) {
